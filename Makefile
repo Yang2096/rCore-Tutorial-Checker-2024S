@@ -49,7 +49,7 @@ randomize:
 	find check -name "*.py" | xargs -I {} sh -c 'sed -i.bak 's/OK/OK$(RAND)/g' {} && rm -rf {}.bak'
 	find check -name "*.py" | xargs -I {} sh -c 'sed -i.bak 's/passed/passed$(RAND)/g' {} && rm -rf {}.bak'
 
-test: env randomize
+test: randomize
 ifneq ($(OFFLINE),)
 	cp -r vendor/os-vendor ../os/vendor
 	cp -r vendor/user-vendor user/vendor
